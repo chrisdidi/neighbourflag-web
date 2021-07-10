@@ -3,9 +3,11 @@ import { useHistory } from "react-router-dom";
 import Button from "../../components/common/button";
 import Input from "../../components/common/input";
 import PasswordInput from "../../components/password-input";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 const CreateAccount = () => {
   const history = useHistory();
+  useScrollToTop();
   return (
     <div className=" absolute top-0 left-0 max-w-screen min-h-screen font-poppins responsive-padding pb-20">
       <div className=" pt-40 w-full">
