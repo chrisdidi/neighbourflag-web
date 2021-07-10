@@ -15,7 +15,7 @@ const Header = () => {
       <div className=" flex-end-center group cursor-pointer  relative">
         <div className=" w-0 overflow-hidden group-hover:w-40 group-hover:px-2 py-2 absolute mr-9 animation-all transition-all bg-gray-700 rounded-md bg-opacity-90">
           <p className=" whitespace-nowrap text-center text-gray-50 font-poppins">
-            How does it work?
+            How it works?
           </p>
         </div>
         <div className=" w-8 h-8 flex-center border rounded-full border-primary">

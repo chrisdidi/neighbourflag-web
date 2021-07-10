@@ -26077,6 +26077,46 @@ video {
   }
 }
 
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  50% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  50% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
 .animate-none {
   -webkit-animation: none;
           animation: none;
@@ -26100,6 +26140,26 @@ video {
 .animate-bounce {
   -webkit-animation: bounce 1s infinite;
           animation: bounce 1s infinite;
+}
+
+.animate-slide-right-03 {
+  -webkit-animation: slide-right 0.3s ease-out;
+          animation: slide-right 0.3s ease-out;
+}
+
+.animate-slide-right-06 {
+  -webkit-animation: slide-right 0.6s ease-out;
+          animation: slide-right 0.6s ease-out;
+}
+
+.animate-slide-right-09 {
+  -webkit-animation: slide-right 0.9s ease-out;
+          animation: slide-right 0.9s ease-out;
+}
+
+.animate-slide-right-12 {
+  -webkit-animation: slide-right 1.2s ease-out;
+          animation: slide-right 1.2s ease-out;
 }
 
 .mix-blend-normal {
@@ -52161,6 +52221,26 @@ video {
             animation: bounce 1s infinite;
   }
 
+  .sm\:animate-slide-right-03 {
+    -webkit-animation: slide-right 0.3s ease-out;
+            animation: slide-right 0.3s ease-out;
+  }
+
+  .sm\:animate-slide-right-06 {
+    -webkit-animation: slide-right 0.6s ease-out;
+            animation: slide-right 0.6s ease-out;
+  }
+
+  .sm\:animate-slide-right-09 {
+    -webkit-animation: slide-right 0.9s ease-out;
+            animation: slide-right 0.9s ease-out;
+  }
+
+  .sm\:animate-slide-right-12 {
+    -webkit-animation: slide-right 1.2s ease-out;
+            animation: slide-right 1.2s ease-out;
+  }
+
   .sm\:mix-blend-normal {
     mix-blend-mode: normal;
   }
@@ -78127,6 +78207,26 @@ video {
   .md\:animate-bounce {
     -webkit-animation: bounce 1s infinite;
             animation: bounce 1s infinite;
+  }
+
+  .md\:animate-slide-right-03 {
+    -webkit-animation: slide-right 0.3s ease-out;
+            animation: slide-right 0.3s ease-out;
+  }
+
+  .md\:animate-slide-right-06 {
+    -webkit-animation: slide-right 0.6s ease-out;
+            animation: slide-right 0.6s ease-out;
+  }
+
+  .md\:animate-slide-right-09 {
+    -webkit-animation: slide-right 0.9s ease-out;
+            animation: slide-right 0.9s ease-out;
+  }
+
+  .md\:animate-slide-right-12 {
+    -webkit-animation: slide-right 1.2s ease-out;
+            animation: slide-right 1.2s ease-out;
   }
 
   .md\:mix-blend-normal {
@@ -104097,6 +104197,26 @@ video {
             animation: bounce 1s infinite;
   }
 
+  .lg\:animate-slide-right-03 {
+    -webkit-animation: slide-right 0.3s ease-out;
+            animation: slide-right 0.3s ease-out;
+  }
+
+  .lg\:animate-slide-right-06 {
+    -webkit-animation: slide-right 0.6s ease-out;
+            animation: slide-right 0.6s ease-out;
+  }
+
+  .lg\:animate-slide-right-09 {
+    -webkit-animation: slide-right 0.9s ease-out;
+            animation: slide-right 0.9s ease-out;
+  }
+
+  .lg\:animate-slide-right-12 {
+    -webkit-animation: slide-right 1.2s ease-out;
+            animation: slide-right 1.2s ease-out;
+  }
+
   .lg\:mix-blend-normal {
     mix-blend-mode: normal;
   }
@@ -130065,6 +130185,26 @@ video {
             animation: bounce 1s infinite;
   }
 
+  .xl\:animate-slide-right-03 {
+    -webkit-animation: slide-right 0.3s ease-out;
+            animation: slide-right 0.3s ease-out;
+  }
+
+  .xl\:animate-slide-right-06 {
+    -webkit-animation: slide-right 0.6s ease-out;
+            animation: slide-right 0.6s ease-out;
+  }
+
+  .xl\:animate-slide-right-09 {
+    -webkit-animation: slide-right 0.9s ease-out;
+            animation: slide-right 0.9s ease-out;
+  }
+
+  .xl\:animate-slide-right-12 {
+    -webkit-animation: slide-right 1.2s ease-out;
+            animation: slide-right 1.2s ease-out;
+  }
+
   .xl\:mix-blend-normal {
     mix-blend-mode: normal;
   }
@@ -156031,6 +156171,26 @@ video {
   .\32xl\:animate-bounce {
     -webkit-animation: bounce 1s infinite;
             animation: bounce 1s infinite;
+  }
+
+  .\32xl\:animate-slide-right-03 {
+    -webkit-animation: slide-right 0.3s ease-out;
+            animation: slide-right 0.3s ease-out;
+  }
+
+  .\32xl\:animate-slide-right-06 {
+    -webkit-animation: slide-right 0.6s ease-out;
+            animation: slide-right 0.6s ease-out;
+  }
+
+  .\32xl\:animate-slide-right-09 {
+    -webkit-animation: slide-right 0.9s ease-out;
+            animation: slide-right 0.9s ease-out;
+  }
+
+  .\32xl\:animate-slide-right-12 {
+    -webkit-animation: slide-right 1.2s ease-out;
+            animation: slide-right 1.2s ease-out;
   }
 
   .\32xl\:mix-blend-normal {
