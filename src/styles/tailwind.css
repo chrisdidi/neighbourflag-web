@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+
+.animation-all {
+  @apply transition-all duration-500 transition-all;
+}
+
+.flex-between-center {
+  @apply flex justify-between items-center;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+.flex-end-center {
+  @apply flex justify-end items-center;
+}
+
+.responsive-padding {
+  @apply px-3 md:px-40;
+}
+@tailwind utilities;
