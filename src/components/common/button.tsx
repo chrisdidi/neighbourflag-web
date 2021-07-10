@@ -7,6 +7,7 @@ interface IProps {
   label?: string;
   loading?: boolean;
   loadingLabel?: string;
+  onClick?: any;
 }
 
 const Button: React.FC<IProps> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<IProps> = ({
   loading,
   loadingLabel,
   label,
+  onClick,
 }) => {
   const getColors = () => {
     switch (intent) {
@@ -37,6 +39,7 @@ const Button: React.FC<IProps> = ({
   };
   return (
     <button
+      onClick={onClick}
       className={` ${getColors()} ${
         disabled ? " cursor-not-allowed opacity-80" : " cursor-pointer"
       } rounded-lg animation-all py-3 px-4 w-full hover:bg-opacity-80 shadow-md hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none`}

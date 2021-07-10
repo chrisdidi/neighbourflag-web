@@ -1,11 +1,14 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { mainPath } from "../paths";
+import { mainPath, signedOutPath } from "../paths";
 
 const MainRouter = () => {
   return (
     <Switch>
       {mainPath.map((path, index) => (
+        <Route key={`${path.path}_${index}`} {...path} />
+      ))}
+      {signedOutPath.map((path, index) => (
         <Route key={`${path.path}_${index}`} {...path} />
       ))}
     </Switch>
