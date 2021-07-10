@@ -1,5 +1,6 @@
 import React from "react";
 import { Logo } from "../assets/logo";
+import Button from "../components/common/button";
 
 const Home = () => {
   return (
@@ -19,11 +20,13 @@ const Home = () => {
             </p>
           </div>
           <div className=" w-full h-full flex items-center justify-center">
-            <div>Button</div>
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
+              <Button label="Raise a Flag" />
+              <Button label="Send some love ❤" appearance="minimal" />
+            </div>
           </div>
         </div>
       </div>
-      <div className=" w-full h-screen flex"></div>
     </div>
   );
 };
