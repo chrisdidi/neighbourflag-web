@@ -5,6 +5,10 @@
   @apply transition-all duration-500 transition-all;
 }
 
+.bg-blur {
+  backdrop-filter: saturate(200%) blur(10px);
+}
+
 .flex-between-center {
   @apply flex justify-between items-center;
 }
