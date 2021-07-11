@@ -1,4 +1,4 @@
-import Home from "./screens/common/home";
+import Home from "./screens/public/home";
 import CreateAccount from "./screens/signed-out/create-account";
 import SignIn from "./screens/signed-out/sign-in";
 

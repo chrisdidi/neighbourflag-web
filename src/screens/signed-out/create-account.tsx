@@ -2,7 +2,9 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import Button from "../../components/common/button";
 import Input from "../../components/common/input";
+import GoogleSignInButton from "../../components/external/google-signin-button";
 import PasswordInput from "../../components/password-input";
+import SeeFlagsLink from "../../components/see-flags-link";
 import useScrollToTop from "../../hooks/useScrollToTop";
 
 const CreateAccount = () => {
@@ -13,6 +15,9 @@ const CreateAccount = () => {
       <div className=" pt-40 w-full">
         <form className=" md:max-w-lg">
           <div className=" w-full animate-slide-right-03">
+            <div className=" my-4">
+              <SeeFlagsLink />
+            </div>
             <p className=" text-secondary font-semibold text-2xl ">
               Create an account.
             </p>
@@ -20,7 +25,7 @@ const CreateAccount = () => {
               With an account, you can:
               <br />
               - Raise flags and respond to people who wish to offer help <br />
-              - Keep a record those who have helped you
+              - Keep a record of those who have helped you
               <br />
               - Keep a record of the people you've helped
               <br />
@@ -36,14 +41,14 @@ const CreateAccount = () => {
                 hint="If you raise a flag and someone wishes to offer help, we will notify you via your e-mail. We will never use your e-mail for anything other than this."
               />
             </div>
-            <div className=" mt-10 relative">
+            {/* <div className=" mt-10 relative">
               <Input
                 name="phone"
                 placeholder="Contact no."
                 label="Contact no. (Optional)"
                 hint="If you raise a flag, upon acceptance of help, your contact number will be shared with volunteers so they can reach out to you."
               />
-            </div>
+            </div> */}
             <div className=" mt-10 relative">
               <PasswordInput label="Password" />
             </div>
@@ -59,6 +64,12 @@ const CreateAccount = () => {
                 Sign In
               </span>
             </p>
+            <div className=" my-4 flex justify-around space-x-3 items-center">
+              <div className=" border border-solid border-t border-gray-200 w-full" />
+              <p className=" text-gray-400 font-poppins">or</p>
+              <div className=" border border-solid border-t border-gray-200 w-full" />
+            </div>
+            <GoogleSignInButton />
           </div>
         </form>
       </div>

@@ -2,7 +2,9 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import Button from "../../components/common/button";
 import Input from "../../components/common/input";
+import GoogleSignInButton from "../../components/external/google-signin-button";
 import PasswordInput from "../../components/password-input";
+import SeeFlagsLink from "../../components/see-flags-link";
 import useScrollToTop from "../../hooks/useScrollToTop";
 
 const SignIn = () => {
@@ -10,10 +12,13 @@ const SignIn = () => {
 
   useScrollToTop();
   return (
-    <div className=" absolute top-0 left-0 w-screen min-h-screen font-poppins responsive-padding">
+    <div className=" absolute top-0 left-0 max-w-screen min-h-screen h-full font-poppins responsive-padding">
       <div className=" pt-40 w-full">
         <form className=" md:max-w-lg">
           <div className=" w-full animate-slide-right-03">
+            <div className=" my-4">
+              <SeeFlagsLink />
+            </div>
             <p className=" text-secondary font-semibold text-2xl ">
               Sign In to raise flags.
             </p>
@@ -33,7 +38,7 @@ const SignIn = () => {
               <PasswordInput label="Password" />
             </div>
           </div>
-          <div className=" w-full mt-32 animate-slide-right-09">
+          <div className=" w-full mt-20 animate-slide-right-09 pb-24">
             <Button appearance="primary" label="Sign In" />
             <p className=" mt-3 text-center text-gray-500">
               First time here?{" "}
@@ -44,6 +49,12 @@ const SignIn = () => {
                 Create Account
               </span>
             </p>
+            <div className=" my-4 flex justify-around space-x-3 items-center">
+              <div className=" border border-solid border-t border-gray-200 w-full" />
+              <p className=" text-gray-400 font-poppins">or</p>
+              <div className=" border border-solid border-t border-gray-200 w-full" />
+            </div>
+            <GoogleSignInButton />
           </div>
         </form>
       </div>

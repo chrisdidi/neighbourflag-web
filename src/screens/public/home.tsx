@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Logo } from "../../assets/logo";
 import Button from "../../components/common/button";
+import SeeFlagsLink from "../../components/see-flags-link";
 
 const Home = () => {
   const history = useHistory();
@@ -16,10 +17,13 @@ const Home = () => {
               </h1>
               <Logo />
             </div>
-            <p className=" text-gray-500 w-full mt-2 animate-slide-right-06">
+            <p className=" text-gray-500 w-full mt-2 animate-slide-right-06 mb-4">
               Raise a flag to ask for help or support a family in your
               community!
             </p>
+            <div className=" animate-slide-right-06">
+              <SeeFlagsLink />
+            </div>
           </div>
           <div className=" w-full h-full flex items-center justify-center">
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-3 w-full animate-slide-right-09">
