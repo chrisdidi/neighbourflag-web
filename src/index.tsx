@@ -9,6 +9,7 @@ import "firebase/auth";
 import { ProvideAuth } from "./providers/authProvider";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "./apollo";
+import { BrowserRouter } from "react-router-dom";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -16,9 +17,11 @@ ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <HelmetProvider>
-        <ProvideAuth>
-          <App />
-        </ProvideAuth>
+        <BrowserRouter>
+          <ProvideAuth>
+            <App />
+          </ProvideAuth>
+        </BrowserRouter>
       </HelmetProvider>
     </ApolloProvider>
   </React.StrictMode>,

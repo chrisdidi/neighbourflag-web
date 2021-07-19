@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { BrowserRouter } from "react-router-dom";
 import MainRouter from "../routers/main-router";
 import Header from "./header";
 
@@ -10,10 +9,8 @@ function App() {
       <Helmet>
         <title>neighbourflag | Get and send help.</title>
       </Helmet>
-      <BrowserRouter>
-        <Header />
-        <MainRouter />
-      </BrowserRouter>
+      <Header />
+      <MainRouter />
     </div>
   );
 }

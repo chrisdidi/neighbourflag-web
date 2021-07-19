@@ -3,6 +3,7 @@ import { MeData, User } from "../types/auth.types";
 import { authTokenVar, isLoggedInVar } from "../apollo";
 import { LOCALSTORAGE_TOKEN } from "../constants";
 import { gql, useQuery, useReactiveVar } from "@apollo/client";
+import { useHistory } from "react-router-dom";
 
 interface IProps {
   user?: User;
@@ -64,6 +65,7 @@ export const useAuth = () => {
 };
 
 const useProvideAuth = () => {
+  const history = useHistory();
   const [user, setUser] = useState<User | undefined>();
   const authToken = useReactiveVar(authTokenVar);
   const { data, loading, refetch, subscribeToMore } = useQuery<MeData>(GET_ME, {
@@ -72,6 +74,7 @@ const useProvideAuth = () => {
   const signOut = () => {
     localStorage.removeItem(LOCALSTORAGE_TOKEN);
     setUser(undefined);
+    history.push("/");
     isLoggedInVar(false);
     authTokenVar(undefined);
   };

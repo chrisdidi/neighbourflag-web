@@ -23,4 +23,27 @@
 .responsive-padding {
   @apply px-3 md:px-40;
 }
+
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-gray-200;
+  background: #c7c7c7;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 1px;
+  width: 1px;
+  height: 1px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  @apply rounded-full w-1 h-1;
+  background: transparent;
+}
+
+.scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @tailwind utilities;
