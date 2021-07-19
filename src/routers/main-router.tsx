@@ -5,9 +5,12 @@ import { isLoggedInVar } from "../apollo";
 import { mainPath, signedOutPath } from "../paths";
 import SignedInRouter from "./signed-in-router";
 import NotFound from "../screens/public/not-found";
+import { useAuth } from "../providers/authProvider";
+import LoadingScreen from "../screens/public/LoadingScreen";
 
 const MainRouter = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
+  const { userLoading } = useAuth();
   return (
     <Switch>
       {mainPath.map((path, index) => (
@@ -20,9 +23,7 @@ const MainRouter = () => {
           <Route key={`${path.path}_${index}`} {...path} />
         ))
       )}
-      <Route>
-        <NotFound />
-      </Route>
+      <Route>{userLoading ? <LoadingScreen /> : <NotFound />}</Route>
     </Switch>
   );
 };

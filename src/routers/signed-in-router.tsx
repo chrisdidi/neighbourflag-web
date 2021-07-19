@@ -1,5 +1,6 @@
 import { Route } from "react-router";
 import { Redirect } from "react-router-dom";
+import Menu from "../components/menu";
 import { useAuth } from "../providers/authProvider";
 import LoadingScreen from "../screens/public/LoadingScreen";
 import ListOnMap from "../screens/signed-in/list-on-map";
@@ -16,9 +17,10 @@ const SignedInRouter = () => {
   const { user, userLoading } = useAuth();
   return !userLoading ? (
     user?.emailVerified ? (
-      <div>
-        {signedInPath.map((path) => (
-          <Route {...path} />
+      <div className=" w-full flex md:flex-row-reverse">
+        <Menu />
+        {signedInPath.map((path, index) => (
+          <Route key={`${path.path}_${index}`} {...path} />
         ))}
         <Route>
           <Redirect to="/map" />
