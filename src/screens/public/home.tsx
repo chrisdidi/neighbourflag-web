@@ -3,9 +3,11 @@ import { useHistory } from "react-router-dom";
 import { Logo } from "../../assets/logo";
 import Button from "../../components/common/button";
 import SeeFlagsLink from "../../components/see-flags-link";
+import { useAuth } from "../../providers/authProvider";
 
 const Home = () => {
   const history = useHistory();
+  const { user } = useAuth();
   return (
     <div className=" absolute top-0 left-0 w-full max-w-screen responsive-padding font-poppins">
       <div className=" w-full min-h-screen flex">
@@ -29,7 +31,9 @@ const Home = () => {
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-3 w-full animate-slide-right-09">
               <Button
                 label="Raise a Flag"
-                onClick={() => history.push("/sign-in")}
+                onClick={() =>
+                  history.push(user ? "/raise-a-flag" : "/sign-in")
+                }
               />
               <Button label="Send some love ❤" appearance="minimal" />
             </div>
