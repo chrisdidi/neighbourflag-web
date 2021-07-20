@@ -1,7 +1,9 @@
-import { MenuIcon } from "evergreen-ui";
+import { CrossIcon, MenuIcon } from "evergreen-ui";
 import React, { useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useOnClickOutside } from "../hooks/useOnClickOutside";
 import { useAuth } from "../providers/authProvider";
+import { isPathActive } from "../utils/helpers";
 
 const menuItems = [
   {
@@ -26,17 +28,43 @@ const menuItems = [
   },
 ];
 const Menu = () => {
-  const [mobileShow, setMobileShow] = useState(false);
+  const history = useHistory();
   const { signOut } = useAuth();
+  const [mobileShow, setMobileShow] = useState(false);
   const mobileMenuRef = useRef(null);
+
   useOnClickOutside(mobileMenuRef, () => setMobileShow(false));
+
   return (
     <div
       className={`fixed bottom-0 right-0 md:static md:w-full max-w-xs font-poppins`}
     >
       {/** Web menu */}
-      <div className=" pt-20 p-4 hidden md:flex flex-col bg-secondary  md:h-screen">
-        <p>First item</p>
+      <div className=" pt-20 hidden md:flex flex-col bg-secondary  md:h-screen">
+        <div className=" flex items-center text-primary font-semibold p-4">
+          <MenuIcon />
+          <p className=" ml-3">Menu</p>
+        </div>
+        {menuItems.map((item, index) => (
+          <div
+            className={`${
+              isPathActive(item.path)
+                ? " bg-opacity-100 text-white"
+                : " text-gray-50 bg-opacity-0"
+            } bg-primary p-4 cursor-pointer hover:bg-opacity-100 hover:text-white transform duration-300 group`}
+            key={`${item.path}_${index}`}
+            onClick={() => history.push(item.path)}
+          >
+            <p className=" font-semibold">{item.name}</p>
+            <p
+              className={`${
+                isPathActive(item.path) ? "text-secondary" : "text-gray-400"
+              } group-hover:text-secondary italic text-sm`}
+            >
+              {item.description}
+            </p>
+          </div>
+        ))}
       </div>
       {/**Mobile menu */}
       <div
@@ -45,24 +73,26 @@ const Menu = () => {
         }`}
       />
       <div className=" relative md:hidden" ref={mobileMenuRef}>
-        <div
-          className={` absolute bottom-full right-0 mr-4 rounded-2xl mb-4 w-56 bg-gray-50 transform duration-500 ${
-            mobileShow
-              ? " max-h-96 overflow-y-auto scrollbar"
-              : "max-h-0 overflow-y-hidden"
-          }`}
-        >
-          <div className=" p-3">
-            <p className=" text-primary text-lg font-semibold">Menu</p>
-            <div className=" mt-2 mb-6">
+        <div>
+          <div
+            className={` absolute bottom-full right-0 mr-4 rounded-2xl mb-4 w-56 bg-gray-50 transform duration-500 ${
+              mobileShow
+                ? " max-h-96 overflow-y-auto scrollbar"
+                : "max-h-0 overflow-y-hidden"
+            }`}
+          >
+            <p className=" text-primary text-lg font-semibold p-3">Menu</p>
+            <div className=" mb-6">
               {menuItems.map((item, index) => (
                 <div
-                  className={` mt-2 cursor-pointer ${
-                    window.location.href.includes(item.path)
+                  className={` px-3 py-2 cursor-pointer hover:bg-primary hover:text-white transform duration-300 ${
+                    window.location.pathname.toLowerCase() ===
+                    item.path.toLowerCase()
                       ? `text-white bg-primary`
                       : `text-secondary`
                   }`}
                   key={`${item.name}_${index}`}
+                  onClick={() => history.push(item.path)}
                 >
                   <p className={` font-semibold cursor-pointer`}>{item.name}</p>
                   <p className=" text-gray-500 italic">{item.description}</p>
@@ -70,7 +100,7 @@ const Menu = () => {
               ))}
             </div>
             <p
-              className=" text-primary font-semibold text-lg"
+              className=" p-3 text-primary font-semibold text-lg cursor-pointer hover:text-secondary transform duration-300"
               onClick={signOut}
             >
               Sign Out
@@ -81,7 +111,7 @@ const Menu = () => {
           className=" border-4 border-solid border-white w-max mr-4 mb-8 relative bg-primary rounded-3xl p-4 text-white shadow-md cursor-pointer hover:mb-9 hover:shadow-lg transform duration-300"
           onClick={setMobileShow.bind(this, !mobileShow)}
         >
-          <MenuIcon />
+          {mobileShow ? <CrossIcon /> : <MenuIcon />}
         </div>
       </div>
     </div>
