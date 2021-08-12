@@ -34,9 +34,19 @@ const SignIn = () => {
   const password = useInput({});
   useScrollToTop();
 
+  const formIncomplete = () => {
+    if (!email.value || !password.value) return true;
+    return false;
+  };
   const onSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      if (formIncomplete()) {
+        return setError({
+          title: `Seems like there's missing value`,
+          message: `Please fill in all required field.`,
+        });
+      }
       const signInOutcome = await signIn({
         variables: {
           email: email.value,
@@ -101,7 +111,7 @@ const SignIn = () => {
             <Button
               appearance="primary"
               loading={loading}
-              disabled={loading}
+              disabled={loading || formIncomplete()}
               label="Sign In"
               onClick={onSignIn}
             />

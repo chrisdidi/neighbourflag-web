@@ -1,19 +1,12 @@
 import { Route } from "react-router";
 import { Redirect } from "react-router-dom";
 import Menu from "../components/menu";
+import { signedInPath } from "../paths";
 import { useAuth } from "../providers/authProvider";
 import { MenuProvider } from "../providers/menuProvider";
 import LoadingScreen from "../screens/public/LoadingScreen";
-import ListOnMap from "../screens/signed-in/list-on-map";
 import VerifyEmail from "../screens/signed-in/verify-email";
 
-const signedInPath = [
-  {
-    path: "/map",
-    component: ListOnMap,
-    exact: true,
-  },
-];
 const SignedInRouter = () => {
   const { user, userLoading } = useAuth();
   return !userLoading ? (

@@ -39,10 +39,12 @@ const Button: React.FC<IProps> = ({
   };
   return (
     <button
-      onClick={disabled ? () => {} : onClick}
+      onClick={disabled ? (e) => e.preventDefault() : onClick}
       className={` ${getColors()} ${
-        disabled ? " cursor-not-allowed opacity-80" : " cursor-pointer"
-      } rounded-lg animation-all py-3 px-4 w-full hover:bg-opacity-80 shadow-md hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none`}
+        disabled
+          ? " cursor-not-allowed opacity-80"
+          : " cursor-pointer hover:bg-opacity-80  hover:shadow-lg"
+      } rounded-lg animation-all py-3 px-4 w-full shadow-md focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none`}
     >
       {loading ? loadingLabel || "Loading..." : label}
     </button>

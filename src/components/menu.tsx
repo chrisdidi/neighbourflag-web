@@ -31,40 +31,56 @@ const Menu = () => {
   const history = useHistory();
   const { signOut } = useAuth();
   const [mobileShow, setMobileShow] = useState(false);
+
   const mobileMenuRef = useRef(null);
 
   useOnClickOutside(mobileMenuRef, () => setMobileShow(false));
 
+  const onRedirect = (path: string) => {
+    history.push(path);
+    setMobileShow(false);
+  };
+
   return (
     <div
-      className={`fixed bottom-0 right-0 md:static md:w-full max-w-xs font-poppins`}
+      className={` z-30 fixed bottom-0 right-0 md:w-full max-w-xs font-poppins`}
+      ref={mobileMenuRef}
     >
       {/** Web menu */}
-      <div className=" pt-20 hidden md:flex flex-col bg-secondary  md:h-screen">
-        <div className=" flex items-center text-primary font-semibold p-4">
-          <MenuIcon />
+      <div className=" hidden md:flex flex-col bg-secondary mr-4 rounded-t-xl overflow-hidden">
+        <div
+          className=" flex items-center bg-primary text-white font-semibold p-4 cursor-pointer"
+          onClick={setMobileShow.bind(this, !mobileShow)}
+        >
+          {mobileShow ? <CrossIcon /> : <MenuIcon />}
           <p className=" ml-3">Menu</p>
         </div>
-        {menuItems.map((item, index) => (
-          <div
-            className={`${
-              isPathActive(item.path)
-                ? " bg-opacity-100 text-white"
-                : " text-gray-50 bg-opacity-0"
-            } bg-primary p-4 cursor-pointer hover:bg-opacity-100 hover:text-white transform duration-300 group`}
-            key={`${item.path}_${index}`}
-            onClick={() => history.push(item.path)}
-          >
-            <p className=" font-semibold">{item.name}</p>
-            <p
+        <div
+          className={`${
+            mobileShow ? " max-h-96" : "max-h-0"
+          } overflow-hidden transition-all duration-300`}
+        >
+          {menuItems.map((item, index) => (
+            <div
               className={`${
-                isPathActive(item.path) ? "text-secondary" : "text-gray-400"
-              } group-hover:text-secondary italic text-sm`}
+                isPathActive(item.path)
+                  ? " bg-opacity-100 text-white"
+                  : " text-gray-50 bg-opacity-0"
+              } bg-primary p-4 cursor-pointer hover:bg-opacity-100 hover:text-white transform duration-300 group`}
+              key={`${item.path}_${index}`}
+              onClick={onRedirect.bind(this, item.path)}
             >
-              {item.description}
-            </p>
-          </div>
-        ))}
+              <p className=" font-semibold">{item.name}</p>
+              <p
+                className={`${
+                  isPathActive(item.path) ? "text-secondary" : "text-gray-400"
+                } group-hover:text-secondary italic text-sm`}
+              >
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
       {/**Mobile menu */}
       <div
@@ -72,7 +88,7 @@ const Menu = () => {
           mobileShow ? " bg-opacity-70" : " bg-opacity-0 pointer-events-none"
         }`}
       />
-      <div className=" relative md:hidden" ref={mobileMenuRef}>
+      <div className=" relative md:hidden">
         <div>
           <div
             className={` absolute bottom-full right-0 mr-4 rounded-2xl mb-4 w-56 bg-gray-50 transform duration-500 ${
@@ -92,7 +108,7 @@ const Menu = () => {
                       : `text-secondary`
                   }`}
                   key={`${item.name}_${index}`}
-                  onClick={() => history.push(item.path)}
+                  onClick={onRedirect.bind(this, item.path)}
                 >
                   <p className={` font-semibold cursor-pointer`}>{item.name}</p>
                   <p className=" text-gray-500 italic">{item.description}</p>

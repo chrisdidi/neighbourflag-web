@@ -56,7 +56,7 @@ const Input: React.FC<IProps> = ({
           </div>
         )}
       </div>
-      <p className=" italic text-sm text-gray-500 mt-2">{hint}</p>
+      <p className=" italic text-sm text-gray-500 mt-2 text-xs">{hint}</p>
     </div>
   );
 };

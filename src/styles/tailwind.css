@@ -20,6 +20,14 @@
   @apply flex justify-end items-center;
 }
 
+.h-40-screen {
+  height: 40vh;
+}
+
+.h-without-header {
+  height: calc(100vh - 53px);
+}
+
 .responsive-padding {
   @apply px-3 md:px-40;
 }

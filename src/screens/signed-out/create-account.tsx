@@ -112,10 +112,10 @@ const CreateAccount = () => {
             <p className=" text-gray-400 mt-3">
               With an account, you can:
               <br />
-              - Raise flags and respond to people who wish to offer help <br />
-              - Keep a record of those who have helped you
+              👉 Raise flags and respond to people who wish to offer help <br />
+              👉 Keep a record of those who have helped you
               <br />
-              - Keep a record of the people you've helped
+              👉 Keep a record of the people you've helped
               <br />
             </p>
           </div>

@@ -31,8 +31,8 @@ const GET_ME = gql`
 `;
 
 const GET_ME_SUBSCRIPTION = gql`
-  subscription meUpdates($input: MeUpdatesInput!) {
-    meUpdates(input: $input) {
+  subscription {
+    meUpdates {
       id
       name
       email
@@ -94,11 +94,6 @@ const useProvideAuth = () => {
         context: {
           connectionParams: {
             "x-jwt": authToken,
-          },
-        },
-        variables: {
-          input: {
-            id: data.me.id,
           },
         },
         updateQuery: (

@@ -18,7 +18,7 @@ const wsLink = new WebSocketLink({
   uri:
     process.env.NODE_ENV === "production"
       ? "wss://neighbourflag.herokuapp.com/graphql"
-      : `ws://localhost:5000/graphql`,
+      : `ws://192.168.100.3:5000/graphql`,
   options: {
     reconnect: true,
     connectionParams: {
@@ -31,7 +31,7 @@ const httpLink = createHttpLink({
   uri:
     process.env.NODE_ENV === "production"
       ? "https://neighbourflag.herokuapp.com/graphql"
-      : "http://localhost:5000/graphql",
+      : "http://192.168.100.3:5000/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {

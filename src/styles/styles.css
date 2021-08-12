@@ -647,6 +647,14 @@ video {
   justify-content: flex-end;
 }
 
+.h-40-screen {
+  height: 40vh;
+}
+
+.h-without-header {
+  height: calc(100vh - 53px);
+}
+
 .responsive-padding {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -729,8 +737,21 @@ video {
   top: -0.75rem;
 }
 
-.z-20 {
-  z-index: 20;
+.z-40 {
+  z-index: 40;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .my-4 {
@@ -742,12 +763,20 @@ video {
   margin-right: 2.25rem;
 }
 
-.ml-3 {
-  margin-left: 0.75rem;
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .mr-4 {
   margin-right: 1rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
 }
 
 .mb-4 {
@@ -794,6 +823,10 @@ video {
   margin-top: 5rem;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -820,6 +853,10 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .max-h-96 {
@@ -857,6 +894,10 @@ video {
 .w-max {
   width: -webkit-max-content;
   width: max-content;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .max-w-xs {
@@ -943,6 +984,10 @@ video {
   flex-direction: column;
 }
 
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -1007,6 +1052,11 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-t-xl {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
 }
 
 .border {
@@ -1108,12 +1158,20 @@ video {
   --tw-bg-opacity: 0.7;
 }
 
+.bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
+}
+
 .p-3 {
   padding: 0.75rem;
 }
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .py-2 {
@@ -1139,10 +1197,6 @@ video {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-
-.pt-20 {
-  padding-top: 5rem;
 }
 
 .pt-40 {
@@ -1181,6 +1235,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-3xl {
@@ -1434,10 +1493,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:static {
-    position: static;
-  }
-
   .md\:flex {
     display: flex;
   }
@@ -1446,12 +1501,16 @@ video {
     display: none;
   }
 
-  .md\:h-screen {
-    height: 100vh;
+  .md\:h-full {
+    height: 100%;
   }
 
   .md\:w-full {
     width: 100%;
+  }
+
+  .md\:w-4\/5 {
+    width: 80%;
   }
 
   .md\:max-w-lg {
@@ -1460,6 +1519,10 @@ video {
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:flex-row-reverse {

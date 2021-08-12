@@ -5,8 +5,9 @@ const Header = () => {
   const history = useHistory();
   return (
     <div
+      id="header"
       className={
-        " bg-white bg-blur bg-opacity-80 z-20 flex-between-center p-3 md:px-20 responsive-padding animation-all fixed top-0 left-0 w-full border-b border-solid border-gray-200"
+        " bg-white bg-blur bg-opacity-80 z-40 flex-between-center p-3 md:px-20 responsive-padding animation-all fixed top-0 left-0 w-full border-b border-solid border-gray-200"
       }
     >
       <div className=" cursor-pointer" onClick={() => history.push("/")}>
